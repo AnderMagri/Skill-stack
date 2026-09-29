@@ -2,8 +2,8 @@
 #
 # install.sh — make every skill in this repo available to Claude Code.
 #
-# Symlinks each skill directory into ~/.claude/skills/ using the name from its
-# SKILL.md frontmatter. Nothing is copied, so `git pull` is all it takes to get
+# Symlinks each skill directory (skill-*/ and vendor/*/) into ~/.claude/skills/ using
+# the name from its SKILL.md frontmatter. Nothing is copied, so `git pull` is all it takes to get
 # updates — there is no installed copy that can go stale.
 #
 #   ./install.sh              install (or refresh) all skills
@@ -23,13 +23,15 @@ skill_map() {
   python3 - "$REPO" <<'PY'
 import pathlib, re, sys
 root = pathlib.Path(sys.argv[1])
-for f in sorted(root.glob("skill-*/SKILL.md")):
+files = sorted(root.glob("skill-*/SKILL.md")) + sorted(root.glob("vendor/*/SKILL.md"))
+for f in files:
+    rel = f.parent.relative_to(root).as_posix()
     text = f.read_text()
     m = re.match(r"^---\n(.*?)\n---", text, re.S)
     if not m:
-        print(f"WARN\t{f.parent.name}\tno frontmatter", file=sys.stderr); continue
+        print(f"WARN\t{rel}\tno frontmatter", file=sys.stderr); continue
     name = re.search(r"^name:\s*(\S+)", m.group(1), re.M)
-    print(f"{(name.group(1) if name else f.parent.name)}\t{f.parent.name}")
+    print(f"{(name.group(1) if name else f.parent.name)}\t{rel}")
 PY
 }
 
