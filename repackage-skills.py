@@ -28,6 +28,7 @@ SKILL_DIRS = {
     "skill-psychology":        PROJECT / "skill-psychology",
     "skill-builder-frontend":  PROJECT / "skill-builder-frontend",
     "skill-builder-fde":       PROJECT / "skill-builder-fde",
+    "skill-hit-songwriter":    PROJECT / "skill-hit-songwriter",
 }
 
 EXCLUDE_FILES = {".DS_Store"}

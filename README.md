@@ -27,6 +27,7 @@ focused skills for accurate triggering and clean separation of concerns.
 | **design-lore-industry** | `skill-industry.skill` | Crypto, Web3, DeFi, fintech, wallets, banking |
 | **frontend-builder-lore** | `skill-builder-frontend.skill` | Frontend engineering builder lore |
 | **fde-builder-lore** | `skill-builder-fde.skill` | Forward-deployed engineering builder lore |
+| **hit-songwriter** | `skill-hit-songwriter.skill` | Pop songwriting: hooks, structure and timing, chords, tempo, weighted Hit Score, TikTok/playlist planning, Suno handoff |
 
 Install all of them for complete coverage, or pick only the ones you need.
 
@@ -207,7 +208,8 @@ Skill-stack/
 ├── skill-shopify/                  → shopify-lore
 ├── skill-industry/                 → design-lore-industry
 ├── skill-builder-frontend/         → frontend-builder-lore
-└── skill-builder-fde/              → fde-builder-lore
+├── skill-builder-fde/              → fde-builder-lore
+└── skill-hit-songwriter/           → hit-songwriter
 ```
 
 ---
